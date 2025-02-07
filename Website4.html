@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="CSS/ALL.css">
+</head>
+
+<body>
+    <script>
+        let product = {
+            name: 'basketball',
+            price: '500 cents'
+        };
+
+        let product2 = {
+            name: 'basketball',
+            price: '400 cents'
+        };
+
+        console.log(product);
+        product.price = '600 cents';
+        console.log(product.price)
+        product['delivery-time'] = '2 days';
+        console.log(product['delivery-time'])
+
+        if (product > product2) {
+            console.log('1');
+        } else {
+            console.log('2')
+        }
+
+        function isSameProduct(product, product2) {
+            if (product.name === product2.name && product.price === product2.price) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        console.log(isSameProduct(product, product2));
+
+        let name = 'Good morning';
+
+        console.log(name.toLowerCase());
+        console.log(name.repeat(2));
+    </script>
+</body>
+
+</html>
