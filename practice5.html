@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <button> 9a</button>
+    <button class="js-button" onclick="
+    
+    buttonEvent();
+
+    ">9b</button>
+
+    <button onclick="
+    choseOne('heads');
+    ">heads</button>
+
+
+    <button onclick="
+    
+    choseOne('tails');
+    ">tails</button>
+
+    <p class="js-choice"></p>
+
+    <input type="text" placeholder="Name" class="js-nameinput" onkeydown="key(event)">
+
+    <button onclick="
+
+    submitName();
+
+    ">Submit</button>
+
+    <p class="js-name"></p>
+
+    <input placeholder="Type something" class="jswrite" onkeyup="
+    const inputElement = document.querySelector('.jswrite');
+    document.querySelector('.js-write').innerHTML = inputElement.value;
+    ">
+
+    <p class="js-write"></p>
+
+    <script>
+
+        function key(event) {
+            if (event.key === 'Enter') {
+                submitName();
+            }
+        }
+
+        function submitName() {
+            const inputElement = document.querySelector('.js-nameinput');
+
+            let name = inputElement.value;
+            console.log(name)
+
+            document.querySelector('.js-name').innerHTML = `Your name is: ${name}`;
+        }
+
+
+
+
+
+        const button = document.querySelector('button');
+        console.log(button);
+
+        const button2 = document.querySelector('.js-button');
+
+        function buttonEvent() {
+            if (button2.innerText === '9b') {
+                button2.innerText = '9b done';
+            } else {
+                button2.innerText = '9b';
+            }
+        }
+
+        function choseOne(guess) {
+
+            // let guess = '';
+
+            if (guess === 'heads') {
+                document.querySelector('.js-choice').innerHTML = `You chose: ${guess}`;
+                return console.log('heads');
+            } else {
+                document.querySelector('.js-choice').innerHTML = `You chose: ${guess}`;
+                return console.log('tails');
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
