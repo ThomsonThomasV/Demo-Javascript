@@ -49,22 +49,25 @@
       console.log(`Cart quantity: ${cartQuantity}`);
     ">Reset Cart</button>
 
+  <p class="jsquantity"></p>
+
   <script>
     let cartQuantity = 0;
 
     function updateCartQuantity(change) {
       if (cartQuantity + change > 10) {
-        alert('The cart is full');
-        return;
+        document.querySelector('.jsquantity').innerHTML = `Full cart`;
 
       } else if (cartQuantity + change < 0) {
-        alert('Not enough items in the cart');
+        document.querySelector('.jsquantity').innerHTML = `Not enough items in the cart`;
         return;
 
       } else {
         cartQuantity += change;
-        console.log(`Cart quantity: ${cartQuantity}`);
+        document.querySelector('.jsquantity').innerHTML = `Cart quantity: ${cartQuantity}`;
       }
+
+
     }
 
   </script>
