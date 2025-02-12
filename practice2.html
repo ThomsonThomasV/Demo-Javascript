@@ -4,6 +4,7 @@
 <head>
   <title>Calculator
   </title>
+  <link rel="stylesheet" href="CSS/practice2.css">
 </head>
 
 <body>
@@ -13,78 +14,78 @@
     
     "></p>
   <p>
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('1')
       ">1</button>
 
-    <button onclick="
+    <button class="numb" onclick="
        updateCalculation('2')
 
       ">2</button>
 
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('3')
 
       ">3</button>
 
-    <button onclick="
+    <button class="spec" onclick="
        updateCalculation(' + ')
 
       ">+</button>
   </p>
 
   <p>
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('4')
 
       ">4</button>
 
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('5')
 
       ">5</button>
 
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('6')
 
       ">6</button>
 
 
-    <button onclick="
+    <button class="spec" onclick="
       updateCalculation(' - ')
 
       ">-</button>
   </p>
 
   <p>
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('7')
 
       ">7</button>
 
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('8')
       ">8</button>
 
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('9')
       ">9</button>
 
-    <button onclick="
+    <button class="spec" onclick="
       updateCalculation(' * ')
       ">*</button>
   </p>
 
   <p>
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('0')
       ">0</button>
 
-    <button onclick="
+    <button class="numb" onclick="
       updateCalculation('.')
       ">.</button>
 
-    <button onclick="
+    <button class="numb" onclick="
         // Note: eval() takes a string and runs it as code.
         // Avoid using eval() in real world projects since
         // it can potentially be given harmful code to run.
@@ -95,13 +96,13 @@
         //  Always need change. Not connected to the function.
       ">=</button>
 
-    <button onclick="
+    <button class="spec" onclick="
       updateCalculation(' / ')
       ">/</button>
   </p>
 
   <p>
-    <button onclick="
+    <button class="numb1" onclick="
         calculation = '';
         // console.log(calculation);
         document.querySelector('.livecalc').innerHTML = calculation;
@@ -112,23 +113,7 @@
 
 
 
-  <script>
-
-    let calculation = localStorage.getItem('calculation') || '';
-
-
-
-    // calculation = '';
-
-    function updateCalculation(value) {
-      calculation += value;
-      document.querySelector('.livecalc').innerHTML = calculation;
-      localStorage.setItem('calculation', calculation);
-    }
-
-
-
-  </script>
+  <script src="JS/practice2.js"></script>
 </body>
 
 </html>
