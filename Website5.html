@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="CSS/ALL1.css">
+
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Youtube Subscribe Button</p>
+    <button onclick="
+    Subscribe();
+    " class="js-subscribe-button yt-button">
+        Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input type="text" placeholder="Cost of Order" class="js-cost-input cost-input" onkeydown="
+    handleCostKeydown(event);">
+
+    <button class="calc-button " onclick="
+        calculateTotal();
+
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+    <p class="error"></p>
+
+    <script>
+        function handleCostKeydown(event) {
+
+            if (event.key === 'Enter') {
+                calculateTotal();
+
+            }
+
+        }
+
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input');
+            let cost = Number(inputElement.value);
+
+            if (cost < 0) {
+                document.querySelector('.error')
+                    .innerHTML = `Error: cost cannot be less than $0`;
+            }
+            else if (cost < 40 && cost > 0) {
+                cost = cost + 10;
+                cost = cost.toFixed(2);
+                document.querySelector('.js-total-cost')
+                    .innerHTML = `$${cost}`;
+            }
+
+
+
+
+        }
+
+        function Subscribe() {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
+            } else {
+                buttonElement.classList.remove('is-subscribed');
+                buttonElement.innerHTML = 'Subscribe';
+            }
+        }
+    </script>
+</body>
+
+</html>
