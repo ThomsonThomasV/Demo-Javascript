@@ -15,24 +15,38 @@
 // console.log(a);
 
 
-const todoList = ['sl','sl'];
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [
+    {
+        name:'make dinner',
+        dueDate:'2002-12-22'
+    },
+     {
+        name:'clean dishes',
+        dueDate:'2002-12-22'
+    }];
 
-rentertodolist();
+rendertodolist();
 
-function rentertodolist(){
+function rendertodolist(){
     
 let todoListHTML='';
 
 for(let i=0;i<todoList.length;i++){
-    const todo =todoList[i];
-    const html = `<p>${todo}</p>`;
+    const todoObject =todoList[i];
+    const {name, dueDate} = todoObject;
+    const html = `
+    <div>${name}</div>
+    <div>${dueDate}</div>
+    <button onclick="
+        todoList.splice(${i},1);
+        rendertodolist();
+        saveToStorage();
+    " class="Delete-button"> Delete </button>`;
     todoListHTML+=html;
 }
 
-console.log(todoListHTML);
 
 document.querySelector('.js-todo-list').innerHTML = todoListHTML;
-
 
 
 }
@@ -41,11 +55,21 @@ function addTodo(){
     const inputElement = document.querySelector('.js-name-input')
     const name = inputElement.value;
 
+    const dateinputElement = document.querySelector('.js-dueDate');
 
-    todoList.push(name);
-    console.log(todoList);
+    const dueDate = dateinputElement.value;
+
+
+    todoList.push({
+        name, dueDate
+    });
 
     inputElement.value ='';
 
-    rentertodolist();
+    rendertodolist();
+    saveToStorage();
+}
+
+function saveToStorage(){
+    localStorage.setItem('todoList',JSON.stringify(todoList))
 }
