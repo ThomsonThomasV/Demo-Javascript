@@ -31,7 +31,9 @@ function rendertodolist(){
     
 let todoListHTML='';
 
-for(let i=0;i<todoList.length;i++){
+todoList.forEach(function(todoObject,Index){
+    
+    for(let i=0;i<todoList.length;i++){
     const todoObject =todoList[i];
     const {name, dueDate} = todoObject;
     const html = `
@@ -43,7 +45,8 @@ for(let i=0;i<todoList.length;i++){
         saveToStorage();
     " class="Delete-button"> Delete </button>`;
     todoListHTML+=html;
-}
+
+}});
 
 
 document.querySelector('.js-todo-list').innerHTML = todoListHTML;
