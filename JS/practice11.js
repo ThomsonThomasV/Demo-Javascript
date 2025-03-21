@@ -59,12 +59,15 @@ document.querySelector('.js-start-button').addEventListener('click', () => {
     updateButton();
 })
 
+let timeoutId;
 function updateButton() {
     const button = document.querySelector('.js-button');
 
+    clearTimeout(timeoutId)
     // The function below was changed
     // to an arrow function.
-    setTimeout(() => {
+    // https://youtu.be/shWr5DNVeCI
+    timeoutId = setTimeout(() => {
         button.innerHTML = 'Finished!';
-    }, 1000);
+    }, 3000);
 }
