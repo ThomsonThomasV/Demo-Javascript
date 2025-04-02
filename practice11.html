@@ -14,7 +14,13 @@
     <button class="js-button js-start-button">Start</button>
 
 
-    <script src="JS/practice11.js"></script>
+    <script src="JS/practice11.js">
+
+        export function isWeekend(date) {
+            const dayOfWeek = date.format('dddd');
+            return dayOfWeek === 'Saturday' || dayOfWeek === 'Sunday';
+        }
+    </script>
 </body>
 
 </html>

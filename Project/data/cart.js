@@ -1,5 +1,3 @@
-import { deliveryOptions } from './deliveryOptions.js';
-
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 if (!cart) {
@@ -36,7 +34,7 @@ export function addToCart(productId) {
     cart.push({
       productId: productId,
       quantity: 1,
-      deliveryOptionID: '1',
+      deliveryOptionId: '1',
     });
   }
 
@@ -57,16 +55,21 @@ export function removeFromCart(productId) {
   saveToStorage();
 }
 
-export function calculateCartQuantity() {
-  let cartQuantity = 0;
+export function updateDeliveryOption(productId, deliveryOptionId) {
+  let matchingItem;
 
   cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
+    if (productId === cartItem.productId) {
+      matchingItem = cartItem;
+    }
   });
 
-  return cartQuantity;
+  matchingItem.deliveryOptionId = deliveryOptionId;
+
+  saveToStorage();
 }
 
+// This code was copied from the solutions of exercises 14f - 14n.
 export function updateQuantity(productId, newQuantity) {
   let matchingItem;
 
@@ -77,19 +80,6 @@ export function updateQuantity(productId, newQuantity) {
   });
 
   matchingItem.quantity = newQuantity;
-
-  saveToStorage();
-}
-
-export function updateDeliveryOption(productId, deliveryOptionId) {
-  let matchingItem;
-
-  cart.forEach((cartItem) => {
-    if (productId === cartItem.productId) {
-      matchingItem = cartItem;
-    }
-  });
-  matchingItem.deliveryOptionId = deliveryOptionId;
 
   saveToStorage();
 }
