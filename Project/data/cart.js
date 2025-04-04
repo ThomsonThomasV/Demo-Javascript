@@ -85,6 +85,10 @@ export function updateQuantity(productId, newQuantity) {
     }
   });
 
+  if (!matchingItem) {
+    return;
+  }
+
   matchingItem.quantity = newQuantity;
 
   saveToStorage();
